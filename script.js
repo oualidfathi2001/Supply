@@ -1,13 +1,10 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-
   var dragSrcEl = null;
 
   function handleDragStart(e) {
     this.style.opacity = '0.1';
     this.style.border = '3px dashed #c4cad3';
-
     dragSrcEl = this;
-
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
   }
@@ -16,9 +13,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (e.preventDefault) {
       e.preventDefault();
     }
-
     e.dataTransfer.dropEffect = 'move';
-
     return false;
   }
 
@@ -32,21 +27,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   function handleDrop(e) {
     if (e.stopPropagation) {
-      e.stopPropagation(); // stops the browser from redirecting.
+      e.stopPropagation();
     }
-
     if (dragSrcEl != this) {
       dragSrcEl.innerHTML = this.innerHTML;
       this.innerHTML = e.dataTransfer.getData('text/html');
     }
-
     return false;
   }
 
   function handleDragEnd(e) {
     this.style.opacity = '1';
     this.style.border = 0;
-
     items.forEach(function (item) {
       item.classList.remove('task-hover');
     });
