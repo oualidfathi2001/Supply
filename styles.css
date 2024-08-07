@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: mediumslateblue;
+    background-color: #808080; /* Couleur de fond grise */
     color: white;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
@@ -167,4 +167,3 @@ select {
     background: white;
     color: rgb(255, 200, 0);
 }
-
